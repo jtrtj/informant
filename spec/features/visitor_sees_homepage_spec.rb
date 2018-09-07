@@ -6,8 +6,8 @@ describe 'a visitor' do
       visit '/'
 
       expect(page).to have_css('.navbar')
-      expect(page).to have_css('.recent-voter')
-      expect(page).to have_link('sign up')
+      expect(page).to have_css('.recent-vote')
+      expect(page).to have_button('sign up')
       expect(page).to have_link('log in')
     end
   end

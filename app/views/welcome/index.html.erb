@@ -2,20 +2,20 @@
   <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
       <div class="col-8">
-        <div class="card mb-3 special-card">
+        <div class="card mb-3 special-card recent-vote">
           <div class="card-header">
             <h2>Today The US Senate Voted on:</h2>
           </div>
 
           <div class="card-body">
-            <h5 class="display-3">H6436</h5>
+            <h5 class="display-3"><%= @vote_presenter.vote.question %></h5>
             <h3 class="card-text">
-              Duis ut porttitor lorem, vitae sagittis metus. Ut ultricies odio nec semper semper. Suspendisse nulla enim, convallis nec nisl sit amet, iaculis tristique risus. Proin sollicitudin suscipit risus vel tempus. In hac habitasse platea dictumst. Sed maximus eget lectus sit amet accumsan. Vestibulum facilisis justo ut ligula commodo vulputate. Phasellus rutrum iaculis neque, vel luctus eros eleifend vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              <%= @vote_presenter.vote.description %>
             </h3>
           </div>
 
           <div class="card-footer">
-          <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               related news
             </button>
             <div class="collapse" id="collapseExample">
@@ -29,8 +29,13 @@
                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
               </div>
             </div>
-                  
           </div>
+          <div class="card-footer">
+            <p>
+              <button type="button" class="btn btn-outline-info">sign up</button> to see everything that happened today.
+            <p>
+          </div>
+
         </div>
       </div>
     </div>  
