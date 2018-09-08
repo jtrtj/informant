@@ -1,4 +1,5 @@
 class SenateVotePresenter
+  attr_reader :date
   def initialize
     @date = Date.today
   end
@@ -8,7 +9,8 @@ class SenateVotePresenter
   end
 
   def fetch_recent_votes
-    FetchVotesService.fetch_senate_votes.map do |vote|
+    @recent_votes ||= FetchVotesService.fetch_senate_votes
+    @recent_votes.map do |vote|
       SenateVote.new(vote)
     end
   end
