@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @vote_presenter = VotePresenter.new.most_recent
+    @vote_presenter = SenateVotePresenter.new.most_recent
   end
 end
