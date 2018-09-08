@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ProPublicaConnection do
   context 'class methods' do
-    it '.conn - makes a conncetion to propublica api with api key' do
+    it '.conn - makes a conncetion to propublica api with api key', :vcr do
       conn = ProPublicaConnection.conn
       response = conn.get('congress/v1/senate/votes/recent.json')
       parsed_response_body = JSON.parse(response.body)

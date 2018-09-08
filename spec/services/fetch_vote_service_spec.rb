@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe FetchVotesService do
   context 'class methods' do
-    it '.fetch_senate_votes - returns an array of hashes containing vote data' do
+    it '.fetch_senate_votes - returns an array of hashes containing vote data', :vcr do
       vote_data = FetchVotesService.fetch_senate_votes
       
       expect(vote_data.first).to have_key(:question)

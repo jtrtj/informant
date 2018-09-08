@@ -19,6 +19,6 @@
 .byebug_history
 
 coverage
-
+fixtures
 # Ignore application configuration
 /config/application.yml
