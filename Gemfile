@@ -24,7 +24,7 @@ gem 'brakeman'
 gem 'jquery-rails'
 gem 'bootstrap',     '~> 4.1.1'
 gem 'material-sass', '~> 4.1.1'
-
+gem 'faraday'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -47,6 +47,13 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'nyan-cat-formatter'
+  gem 'pry'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do

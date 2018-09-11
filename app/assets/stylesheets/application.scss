@@ -1,1 +1,21 @@
 @import "material";
+
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("uscongress.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index:-1;
+}
+.special-card {
+    background-color: rgba(245, 245, 245, .9);
+  }
