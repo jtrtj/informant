@@ -1,6 +1,6 @@
-const url = 'http://localhost:3000/api/v1/most-recent-vote'
+const apiUrl = 'http://localhost:3000/api/v1/most-recent-vote'
 
-fetch(url)
+fetch(apiUrl)
   .then(response => response.json())
   .then(vote => {
     console.log(vote)
@@ -18,9 +18,12 @@ fetch(url)
     var articleCards = voteArticles.map(article => {
 
       return (
-        `<div class="card horizontal">
-        
-        ${article.title}
+        `<div class="card">
+           <div class="card-body">
+             <h5 class="card-title">${article.title}</h5>
+             <p class="card-text">${article.description}</p>
+             <a href="${article.url}" class="btn">${article.source}</a>
+           </div>
         </div>`
       )
      
