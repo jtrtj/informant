@@ -13,7 +13,7 @@ fetch(apiUrl)
     var voteDescription = document.querySelector(".vote-description")
     voteDescription.innerHTML = voteData.description
 
-    var voteArticleCards = document.querySelector(".vote-article-cards")
+    // var voteArticleCards = document.querySelector(".vote-article-cards")
     var voteArticles = voteData.articles
     var articleCards = voteArticles.map(article => {
 
@@ -29,23 +29,21 @@ fetch(apiUrl)
      
     })
     $(".vote-article-cards").html(articleCards)
-
-
-
-    // var recentVote = document.querySelector('.recent-vote')
-    // var allVotes = votes.data
-    // allVotes.map(vote => {
-    //   var voteElement = document.createElement('div')
-    //   voteElement.setAttribute('class', 'display-3')
-    //   voteElement.innerHTML = `
-    //     <h5 class="display-3 vote-question">${vote.question}</h5>
-    //     <h3 class="card-text">
-    //       ${vote.description}
-    //     </h3>
-    //   `
-    //   recentVote.prepend(voteElement)
-    // })
   })
+  
+      // var recentVote = document.querySelector('.recent-vote')
+      // var allVotes = votes.data
+      // allVotes.map(vote => {
+      //   var voteElement = document.createElement('div')
+      //   voteElement.setAttribute('class', 'display-3')
+      //   voteElement.innerHTML = `
+      //     <h5 class="display-3 vote-question">${vote.question}</h5>
+      //     <h3 class="card-text">
+      //       ${vote.description}
+      //     </h3>
+      //   `
+      //   recentVote.prepend(voteElement)
+      // })
 
 
 
