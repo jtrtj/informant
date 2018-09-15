@@ -4,13 +4,13 @@
       <div class="col-8">
         <div class="card mb-3 special-card recent-vote">
           <div class="card-header">
-            <h2>Today The US Senate Voted on:</h2>
+            <h2 class="vote-date-title"> loading...</h2>
           </div>
 
           <div class="card-body">
-            <h5 class="display-3"><%= @vote.question %></h5>
-            <h3 class="card-text">
-              <%= @vote.description %>
+            <h5 class="display-3 vote-question">loading...</h5>
+            <h3 class="card-text vote-description">
+              loding...
             </h3>
           </div>
 
@@ -18,16 +18,8 @@
             <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               related news
             </button>
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-              </div>
-              <div class="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-              </div>
-              <div class="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-              </div>
+            <div class="collapse vote-article-cards" id="collapseExample">
+              
             </div>
           </div>
           <div class="card-footer">
@@ -41,3 +33,5 @@
     </div>  
   </div>
 </div>
+
+<%= javascript_include_tag('informant_get_request.js') %>
