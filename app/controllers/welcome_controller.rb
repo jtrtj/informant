@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    user = current_user || User.new
-    @presenter = InformantPresenter.new(user)
+    @presenter = InformantPresenter.new(current_user)
   end
 end

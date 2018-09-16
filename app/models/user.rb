@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  def self.find_or_create_from_auth_hash(auth_hash)
+  has_many :user_roles
+  has_many :roles, through: :user_roles
+
+  def self.find_or_create_from_auth_hash(auth_hash, role = 'registered_user')
     user = where(
                  provider: auth_hash.provider,
                  uid: auth_hash.uid,
@@ -10,6 +13,17 @@ class User < ApplicationRecord
                 token: auth_hash.credentials.token,
                 secret: auth_hash.credentials.secret
                 )
+    user.set_role(role)
     user
   end
+
+  def registered_user?
+    roles.exists?(name: 'registered_user')
+  end
+
+  def set_role(role)
+    assigned_role = Role.find_by_name(role)
+    UserRole.create(user: self, role: assigned_role)
+  end
+
 end
