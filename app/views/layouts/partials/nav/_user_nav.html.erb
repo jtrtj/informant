@@ -4,7 +4,7 @@
   </a>
   <ul class="nav justify-content-end">
     <li class="nav-item">
-      <p>Signed in as: <%= @presenter.name %></p>
+      <p class="navbar-text">Signed in as: <%= @presenter.name %></p>
     </li>
     <li class="nav-item">
       <%= link_to 'log out', logout_path, method: :get, class: 'nav-link' %>
