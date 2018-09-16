@@ -11,6 +11,10 @@ class InformantPresenter
     end
   end
 
+  def index
+    'standard_index.html.erb'
+  end
+
   def name
     user.name
   end
