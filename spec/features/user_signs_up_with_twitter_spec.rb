@@ -14,6 +14,7 @@ describe 'a twitter user' do
       expect(current_path).to eq(dashboard_path)
       expect(User.last.uid).to eq(stub_omniauth["uid"])
       expect(page).to have_content('log out')
+      expect(page).to have_content(stub_omniauth["info"]["nickname"])
     end
   end
 end
