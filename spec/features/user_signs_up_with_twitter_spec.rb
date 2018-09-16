@@ -12,8 +12,8 @@ describe 'a twitter user' do
       click_on 'sign in with twitter'
 
       expect(current_path).to eq(dashboard_path)
-
-      expect(page).to_not have_content('log out')
+      expect(User.last.uid).to eq(stub_omniauth["uid"])
+      expect(page).to have_content('log out')
     end
   end
 end
