@@ -10,6 +10,9 @@
 
   <body>
     <%= render 'layouts/partials/nav/standard_nav' %>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
