@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/api/v1/most-recent-vote'
+const apiUrl = 'https://us-informant-senate.herokuapp.com/api/v1/most-recent-vote'
 
 fetch(apiUrl)
   .then(response => response.json())

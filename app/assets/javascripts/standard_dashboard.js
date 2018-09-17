@@ -1,4 +1,4 @@
-const votesUrl = 'http://localhost:3000/api/v1/votes'
+const votesUrl = 'https://us-informant-senate.herokuapp.com/api/v1/votes'
 
 fetch(votesUrl)
   .then(response => response.json())
@@ -21,26 +21,28 @@ fetch(votesUrl)
        
       })
       return (
-        `<div class="card mb-3 vote">
-          <div class="card-header">
-            <h2>${vote.number}</h2>
-          </div>
+        `<div class="col-sm-6"
+          <div class="card mb-3 vote">
+            <div class="card-header">
+              <h3>${vote.number} ${vote.created_at}</h3>
+            </div>
 
-          <div class="card-body">
-            <h5 class="display-3">
-              ${vote.question}
-            </h5>
-            <h3 class="card-text">
-              ${vote.description}
-            </h3>
-          </div>
+            <div class="card-body">
+              <h5 class="display-3">
+                ${vote.question}
+              </h5>
+              <h3 class="card-text">
+                ${vote.description}
+              </h3>
+            </div>
 
-          <div class="card-footer">
-          <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            related news
-          </button>
-          <div class="collapse vote-article-cards" id="collapseExample">
-            ${articleCards}
+            <div class="card-footer">
+            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              related news
+            </button>
+            <div class="collapse vote-article-cards" id="collapseExample">
+              ${articleCards}
+            </div>
           </div>
         </div>`
       )
