@@ -1,8 +1,11 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <%= image_tag("informant_logo.png", height: 40) %> 
+<nav class="nav nav-tabs bg-light">
+  <a class="navbar-brand" href="/">
+    <%= image_tag("informant_logo.png", height: 34) %> 
   </a>
   <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <%= link_to 'Dashboard', '/dashboard', method: :get, class: 'nav-link primary'%>
+    </li>
     <li class="nav-item">
       <%= link_to 'Sign in with Twitter', '/auth/twitter', method: :get, class: 'nav-link' %>
     </li>

@@ -15,8 +15,8 @@ function makeVoteArticles(vote) {
            <div class="card-body">
              <h5 class="card-title">${article.title}</h5>
              <p class="card-text">${article.description}</p>
-             <a href="${article.url}" class="btn" target="_blank">${article.source}</a>
-             <a href="/share?article=${article.id}&url=${article.url}" data-confirm="Confirm Tweet" class="btn">Share on Twitter</a>
+             <a href="${article.url}" class="btn btn-raised btn-success" target="_blank">Source: ${article.source}</a>
+             <a href="/share?article=${article.id}&url=${article.url}" data-confirm="Confirm that you would like to create a tweet. The tweet will include a link to Informant." class="btn btn-raised btn-info">Share on Twitter</a>
            </div>
         </div>`
       )

@@ -6,14 +6,26 @@ class User < ApplicationRecord
     user = where(
                  provider: auth_hash.provider,
                  uid: auth_hash.uid,
-                 ).first_or_create
-    user.update(
-                name: auth_hash.info.nickname,
-                profile_image: auth_hash.info.image,
-                token: auth_hash.credentials.token,
-                secret: auth_hash.credentials.secret
-                )
-    user.set_role(role)
+                 ).first_or_initialize #persisted?
+
+    if user.persisted?
+      user.update(
+                  name: auth_hash.info.nickname,
+                  profile_image: auth_hash.info.image,
+                  token: auth_hash.credentials.token,
+                  secret: auth_hash.credentials.secret
+                  )
+
+    else
+      user.update(
+        name: auth_hash.info.nickname,
+        profile_image: auth_hash.info.image,
+        token: auth_hash.credentials.token,
+        secret: auth_hash.credentials.secret
+        )
+      user.set_role(role)
+    end
+    user.save
     user
   end
 
