@@ -6,6 +6,14 @@ function getVotes(path) {
   return promise;
 }
 
+jQuery(function($) {
+  $('a[data-confirm], input[data-confirm]').live('click', function() {
+    if (!confirm($(this).attr('data-confirm'))) {
+      return false;
+    }
+  });
+});
+
 function makeVoteArticles(vote) {
   if ( vote.articles.length >= 1) {
     return vote.articles.map(article => {
@@ -15,7 +23,7 @@ function makeVoteArticles(vote) {
              <h5 class="card-title">${article.title}</h5>
              <p class="card-text">${article.description}</p>
              <a href="${article.url}" class="btn" target="_blank">${article.source}</a>
-             <a href="/auth/twitter" class="btn">Sign in to share on Twitter</a>
+             <a href="/share?article=${article.id}&url=${article.url}" data-confirm="Confirm Tweet" class="btn">Share on Twitter</a>
            </div>
         </div>`
       )
