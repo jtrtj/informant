@@ -5,6 +5,7 @@ class TweetCreator < SimpleDelegator
     twitter_client.update(
       "#{article_url} Shared from http://us-informant.herokuapp.com"
     )
+    send_tweeted_article_to_api(article_id, uid)
   end
   
   private
@@ -16,5 +17,9 @@ class TweetCreator < SimpleDelegator
       config.access_token        = token
       config.access_token_secret = secret
     end
+  end
+
+  def send_tweeted_article_to_api(article_id, twitter_user_id)
+    LogTweetWithApi.new(article_id, twitter_user_id).log
   end
 end

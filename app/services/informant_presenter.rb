@@ -12,7 +12,11 @@ class InformantPresenter
   end
 
   def index
-    'standard_index.html.erb'
+    if user.registered_user?
+      'user_dashboard.html.erb'
+    else
+      'standard_index.html.erb'
+    end
   end
 
   def name

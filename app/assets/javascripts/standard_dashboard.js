@@ -1,5 +1,5 @@
 function getVotes(path) {
-  const root = 'http://localhost:3000';
+  const root = 'https://us-informant-senate.herokuapp.com';
   const url = root + path;
   const promise = fetch(url)
                   .then((response) => response.json());
