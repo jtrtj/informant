@@ -6,7 +6,7 @@ class User < ApplicationRecord
     user = where(
                  provider: auth_hash.provider,
                  uid: auth_hash.uid,
-                 ).first_or_create
+                 ).first_or_initialize #persisted?
     user.update(
                 name: auth_hash.info.nickname,
                 profile_image: auth_hash.info.image,
@@ -14,7 +14,7 @@ class User < ApplicationRecord
                 secret: auth_hash.credentials.secret
                 )
     user.set_role(role)
-    user
+    user #save
   end
 
   def registered_user?

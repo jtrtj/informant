@@ -1,13 +1,16 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <%= image_tag("informant_logo.png", height: 40) %> 
+<nav class="nav nav-tabs bg-light">
+  <a class="navbar-brand" href="/">
+    <%= image_tag("informant_logo.png", height: 34) %> 
   </a>
   <ul class="nav justify-content-end">
     <li class="nav-item">
-      <p class="navbar-text">Signed in as: <%= @presenter.name %></p>
+      <%= link_to 'Dashboard', '/dashboard', method: :get, class: 'nav-link'%>
     </li>
     <li class="nav-item">
       <%= link_to 'log out', logout_path, method: :get, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://twitter.com/<%= @presenter.name %>" target="_blank">Signed in as: <mark><%= @presenter.name %></mark></a>
     </li>
   </ul>
 </nav>
