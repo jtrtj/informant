@@ -14,7 +14,7 @@ function makeVoteArticles(vote) {
            <div class="card-body">
              <h5 class="card-title">${article.title}</h5>
              <p class="card-text">${article.description}</p>
-             <a href="${article.url}" class="btn" target="_blank">${article.source}</a>
+             <a href="${article.url}" class="btn btn-raised btn-success" target="_blank">Source: ${article.source}</a>
              <a href="/auth/twitter" class="btn">Sign in to share on Twitter</a>
            </div>
         </div>`
