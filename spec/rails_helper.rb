@@ -15,6 +15,13 @@ VCR.configure do | config |
   config.filter_sensitive_data("<PROPUBLICA_API_KEY>") { ENV['propublica_api_key'] }
   config.configure_rspec_metadata!
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -38,6 +45,23 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new(
+    {"provider"=>"twitter",
+    "uid"=>"65432",
+    "info"=>
+     {"nickname"=>"wizard_dance",
+      "name"=>"John Roemer",
+      "email"=>nil,
+      "location"=>"Denver",
+      "image"=>"http://pbs.twimg.com/profile_images/414294803031937024/JXpzqkBy_normal.jpeg",
+      "description"=>"regular wizarding.",
+      "urls"=>{"Website"=>"https://t.co/ScVZrAUfLu", "Twitter"=>"https://twitter.com/wizard_dance"}},
+    "credentials"=>{"token"=>"cooltokenbro", "secret"=>"soverysecret"}})
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

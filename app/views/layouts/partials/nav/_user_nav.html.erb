@@ -4,7 +4,10 @@
   </a>
   <ul class="nav justify-content-end">
     <li class="nav-item">
-      <%= link_to 'Sign in with Twitter', '/auth/twitter', method: :get, class: 'nav-link' %>
+      <p class="navbar-text">Signed in as: <%= @presenter.name %></p>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'log out', logout_path, method: :get, class: 'nav-link' %>
     </li>
   </ul>
 </nav>
