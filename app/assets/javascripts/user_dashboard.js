@@ -6,13 +6,6 @@ function getVotes(path) {
   return promise;
 }
 
-jQuery(function($) {
-  $('a[data-confirm], input[data-confirm]').live('click', function() {
-    if (!confirm($(this).attr('data-confirm'))) {
-      return false;
-    }
-  });
-});
 
 function makeVoteArticles(vote) {
   if ( vote.articles.length >= 1) {
@@ -78,6 +71,13 @@ function makeVoteCard(votesData, cssClass) {
 }
 
 
+jQuery(function($) {
+  $('a[data-confirm], input[data-confirm]').live('click', function() {
+    if (!confirm($(this).attr('data-confirm'))) {
+      return false;
+    }
+  });
+});
 
 getVotes('/api/v1/votes')
 .then((response) => makeVoteCard((response), ".vote-list"));
