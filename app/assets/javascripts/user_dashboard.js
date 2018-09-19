@@ -43,14 +43,14 @@ function makeVoteCard(votesData, cssClass) {
           </div>
 
           <div class="card-body">
-            <h5 class="display-3">
-              ${vote.question}
-            </h5>
             <h3 class="card-text">
               ${vote.description}
             </h3>
+            <h3 class="display-6">
+              <ins>${vote.question}</ins>
+            </h3>
             <h3 class="card-text">
-              Result: ${vote.result}
+              Result: <mark>${vote.result}</mark>
             </h3>
           </div>
 

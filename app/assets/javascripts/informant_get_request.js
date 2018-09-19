@@ -36,25 +36,27 @@ function makeVoteCard(votesData, cssClass) {
       `
         <div class="card vote">
           <div class="card-header">
-            <h3>${vote.number} ${vote.created_at}</h3>
+          <h3><em>On ${vote.created_at} The U.S. Senate Voted On:</em></h3>
+            <h3>Vote Number ${vote.number}</h3>
           </div>
 
           <div class="card-body">
-            <h5 class="display-3">
-              ${vote.question}
-            </h5>
-            <h3 class="card-text">
+            <h2 class="display-4">
+              <small>${vote.question}</small>
+            </h2>
+            <h2 class="card-text">
               ${vote.description}
-            </h3>
-            <h3 class="card-text">
-              Result: ${vote.result}
-            </h3>
+            </h2>
+            <h2 class="card-text">
+              Result: <mark>${vote.result}</mark>
+            </h2>
           </div>
 
           <div class="card-footer">
           <button class="btn btn-raised btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             related news
           </button>
+          <a href="/dashboard" class="btn">Go to the dashboard to see more</a>
           <div class="collapse vote-article-cards" id="collapseExample">
             ${makeVoteArticles(vote)}
           </div>
@@ -70,52 +72,5 @@ function makeVoteCard(votesData, cssClass) {
 
 getVotes('/api/v1/most-recent-vote')
 .then((response) => makeVoteCard((response), ".recent-vote"));
-// const apiUrl = 'https://us-informant-senate.herokuapp.com/api/v1/most-recent-vote'
-
-// fetch(apiUrl)
-//   .then(response => response.json())
-//   .then(vote => {
-//     console.log(vote)
-//     // debugger;
-//     var voteData = vote[0]
-//     var voteTitle = document.querySelector(".vote-date-title")
-//     voteTitle.innerHTML = `On ${voteData.created_at} The U.S. Senated Voted`
-//     var voteQuestion = document.querySelector(".vote-question")
-//     voteQuestion.innerHTML = voteData.question
-//     var voteDescription = document.querySelector(".vote-description")
-//     voteDescription.innerHTML = voteData.description
-
-//     // var voteArticleCards = document.querySelector(".vote-article-cards")
-//     var voteArticles = voteData.articles
-//     var articleCards = voteArticles.map(article => {
-
-//       return (
-//         `<div class="card">
-//            <div class="card-body">
-//              <h5 class="card-title">${article.title}</h5>
-//              <p class="card-text">${article.description}</p>
-//              <a href="${article.url}" class="btn">${article.source}</a>
-//            </div>
-//         </div>`
-//       )
-     
-//     })
-//     $(".vote-article-cards").html(articleCards)
-//   })
-  
-//       // var recentVote = document.querySelector('.recent-vote')
-//       // var allVotes = votes.data
-//       // allVotes.map(vote => {
-//       //   var voteElement = document.createElement('div')
-//       //   voteElement.setAttribute('class', 'display-3')
-//       //   voteElement.innerHTML = `
-//       //     <h5 class="display-3 vote-question">${vote.question}</h5>
-//       //     <h3 class="card-text">
-//       //       ${vote.description}
-//       //     </h3>
-//       //   `
-//       //   recentVote.prepend(voteElement)
-//       // })
-
 
 
