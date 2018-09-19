@@ -38,18 +38,18 @@ function makeVoteCard(votesData, cssClass) {
       `<div class="col-sm-6"
         <div class="card mb-3 vote">
           <div class="card-header">
-            <h3>${vote.number} ${vote.created_at}</h3>
+            <h3><em>Vote Number ${vote.number} - ${vote.created_at}</em></h3>
           </div>
 
           <div class="card-body">
-            <h5 class="display-3">
-              ${vote.question}
-            </h5>
             <h3 class="card-text">
               ${vote.description}
             </h3>
+            <h3 class="display-6">
+              <ins>${vote.question}</ins>
+            </h3>
             <h3 class="card-text">
-              Result: ${vote.result}
+              Result: <mark>${vote.result}</mark>
             </h3>
           </div>
 
