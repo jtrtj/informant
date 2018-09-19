@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+  validates_presence_of :provider,
+                        :uid,
+                        :name,
+                        :token,
+                        :secret,
+                        :profile_image
+                        
   has_many :user_roles
   has_many :roles, through: :user_roles
 
