@@ -10,7 +10,7 @@ describe 'a twitter user' do
 
       expect(page).to_not have_content('log out')
 
-      click_on 'sign in with twitter'
+      click_on 'Sign in with Twitter'
       
 
       expect(current_path).to eq(dashboard_path)
